@@ -4,19 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
   <title>Frontend Mentor | Tip calculator app</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="./css/indexStyles.css">
+
+  <!-- Scripts -->
+  <script defer src="./js/indexController.js"></script>
 </head>
 <body>
+  <div class="page-title">
+    <h1>spli<br>tter</h1>
+  </div>
+  <main>
+    <section aria-label="Bill Description">
+      <form action="" method="get">
+        <div class="form-group">
+          <label for="txtBill">bill</label>
+          <input type="text" name="bill" id="txtBill" dir="rtl" pattern="[0-9]">
+        </div>
+        <div class="form-group">
+          <label for="">select tip %</label>
+          <div class="form-group__button-group">
+            <input type="submit" name="tip" value="5%" id="">
+            <input type="submit" name="tip" value="10%" id="">
+            <input type="submit" name="tip" value="15%" id="">
+            <input type="submit" name="tip" value="25%" id="">
+            <input type="submit" name="tip" value="50%" id="">
+            <div class="custom-tip-wrapper" clicked="false">
+              <input type="button" value="custom" id="btn-custom" onclick="CustomTipShowHandler()">
+            </div>
+          </div>
+        </div>
 
-  Bill
+        <label for="">number of people</label>
+        <input type="text" name="" id="">
+      </form>
+    </section>
+    <section>
+      <div class="display">
+        <h2></h2>
+        <p></p>
+        <h2></h2>
+      </div>
+      <div class="display">
+        <h2></h2>
+        <p></p>
+        <h2></h2>
+      </div>
+      <button></button>
+    </section>
+  </main>
+  <!-- Bill
 
   Select Tip %
   5%
@@ -34,7 +76,7 @@
   Total
   / person
 
-  Reset
+  Reset -->
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
