@@ -24,16 +24,16 @@
       <form action="" method="get">
         <div class="form-group">
           <label for="txtBill">bill</label>
-          <input type="text" name="bill" id="txtBill" pattern="[0-9]">
+          <input type="text" name="bill" id="txtBill" pattern="[0-9]" placeholder="0">
         </div>
         <div class="form-group">
-          <label for="">select tip %</label>
+          <p>select tip %</p>
           <div class="form-group__button-group">
-            <input type="submit" name="tip" value="5%" id="">
-            <input type="submit" name="tip" value="10%" id="">
-            <input type="submit" name="tip" value="15%" id="">
-            <input type="submit" name="tip" value="25%" id="">
-            <input type="submit" name="tip" value="50%" id="">
+            <input type="submit" name="tip" value="5%" id="tip-5">
+            <input type="submit" name="tip" value="10%" id="tip-10">
+            <input type="submit" name="tip" value="15%" id="tip-15">
+            <input type="submit" name="tip" value="25%" id="tip-25">
+            <input type="submit" name="tip" value="50%" id="tip-50">
             <div class="custom-tip-wrapper" clicked="false">
               <input type="button" value="custom" id="btn-custom" onclick="CustomTipShowHandler()">
             </div>
@@ -41,7 +41,7 @@
         </div>
         <div class="form-group">
           <label for="txtPeople">Number of People</label>
-          <input type="text" name="people" id="txtPeople">
+          <input type="text" name="people" id="txtPeople" placeholder="0">
         </div>
       </form>
     </section>
@@ -60,7 +60,7 @@
         </div>
         <h2 class="value-display">$<span class="result-totalPerPerson">0.00</span></h2>
       </div>
-      <button>reset</button>
+      <button class="btn-reset">reset</button>
     </section>
   </main>
   <!-- Bill
