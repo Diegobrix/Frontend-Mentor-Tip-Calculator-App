@@ -2,6 +2,9 @@ const btnCustom = document.querySelector("#btn-custom");
 const customWrapper = document.querySelector(".custom-tip-wrapper");
 const resultTotalPerPerson = document.querySelector(".result-totalPerPerson");
 const resultTipPerPerson = document.querySelector(".result-tipPerPerson");
+const billTotal = document.querySelector("#txtBill");
+
+const tipSelector = document.querySelectorAll("input[name='std-tip']");
 
 function CustomTipShowHandler() 
 {
@@ -15,7 +18,23 @@ function CustomTipShowHandler()
     {
         customWrapper.appendChild(tip);
         customWrapper.setAttribute("clicked", "true");
+
+        tip.addEventListener("blur", () => {
+            GenerateValue(tip.value);
+        });
     }
+}
+
+tipSelector.forEach((item) => {
+    item.addEventListener("click", () => {
+        GenerateValue(item.getAttribute("data-value"));
+    });
+});
+
+
+function GenerateValue(percentage) 
+{
+    console.log(percentage);
 }
 
 //Clear all data of bill.
