@@ -137,7 +137,9 @@ form input[type="text"],
 }
 
 form input[type="text"]:hover,
-form input[typer="text"]:active {
+form input[typer="text"]:active,
+.custom-tip:hover,
+.custom-tip:active {
     outline: 2px solid var(--primary-100);
 }
 
@@ -149,7 +151,7 @@ form input[typer="text"]:active {
     gap: 1rem;
 }
 
-input[type="submit"],
+.form-group__button-group > input[type="button"],
 input[type="button"] {
     height: 3.5rem;
     border: 0;

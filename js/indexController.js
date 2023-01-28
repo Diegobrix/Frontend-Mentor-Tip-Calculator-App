@@ -1,5 +1,7 @@
 const btnCustom = document.querySelector("#btn-custom");
 const customWrapper = document.querySelector(".custom-tip-wrapper");
+const resultTotalPerPerson = document.querySelector(".result-totalPerPerson");
+const resultTipPerPerson = document.querySelector(".result-tipPerPerson");
 
 function CustomTipShowHandler() 
 {
@@ -14,4 +16,11 @@ function CustomTipShowHandler()
         customWrapper.appendChild(tip);
         customWrapper.setAttribute("clicked", "true");
     }
+}
+
+//Clear all data of bill.
+function ResetBill() 
+{
+    resultTotalPerPerson.innerHTML("0.00");
+    resultTipPerPerson.innerHTML("0.00");
 }
