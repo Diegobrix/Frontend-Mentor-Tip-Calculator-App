@@ -28,7 +28,7 @@
     font-family: var(--f-family);
 }
 
-.attribution { font-size: 11px; text-align: center; background: var(--neutral-100);}
+.attribution {font-size: 11px; text-align: center; background: var(--neutral-100);}
 .attribution a { color: hsl(228, 45%, 44%); }
 
 /* Mobile 375px */
@@ -171,6 +171,11 @@ input[type="button"] {
     color: var(--neutral-500);
 }
 
+.form-group__button-group input.active-tip {
+    background: var(--primary-100);
+    color: var(--neutral-600);
+}
+
 .custom-tip-wrapper[clicked="true"] input[type="button"]{
     display: none;
 }
@@ -181,23 +186,30 @@ input[type="button"] {
 }
 
 .display-wrapper {
+    display: grid;
+    gap: 1rem;
+
     background: var(--neutral-600);
     margin-top: 2rem;
     border-radius: 10px;
     padding: 2rem 1.5rem  0 1.5rem;
 }
 
+.display:first-of-type {
+    margin-bottom: 1rem;
+}
+
 .display-label h2 {
     text-transform: capitalize;
     color: var(--neutral-100);
 
-    font-size: .9rem;
+    font-size: .8rem;
 }
 
 .display-label p {
     color: var(--neutral-500);
 
-    font-size: .8rem;
+    font-size: .7rem;
 }
 
 .display-wrapper .display {
@@ -230,5 +242,97 @@ input[type="button"] {
 /* Desktop 1440px */
 
 @media screen and (width >= 1440px) {
+    .attribution {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    main {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        align-items: center;
+
+        gap: 0 2rem;
+        padding: 2rem;
+
+        width: clamp(200px, 85ch, 800px);
+        height: 60%;
+
+        border-radius: 25px;
+    }
+
+    main > *,
+    form {
+        width: 100%;
+        height: 100%;
+    }
+
+    section:first-of-type {
+        display: flex;
+        align-items: center;
+    }
+
+    form {
+        justify-content: space-between;
+    }
+
+    .form-group__button-group {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+
+        gap: 1rem .8rem;
+    }
+
+    .form-group__button-group > input[type="button"],
+    input[type="button"] {
+        height: 2.8rem;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+
+    .custom-tip-wrapper .custom-tip {
+        height: 2.8rem;
+    }
+
+    .display-wrapper {
+        display: grid;
+        grid-template-rows: 1fr 1fr 2fr;
+
+        padding: 0 2rem;
+        padding-top: 2rem;
+
+        gap: 0;
+
+        margin-block: auto;
+    }
+
+    .value-display span {
+        font-size: 30px;
+    }
+
+    .display-button-wrapper {
+        display: flex;
+        align-items: center;
+        margin: collapse;
+    }
     
+    .display-wrapper .btn-reset {
+        margin-top: 5rem;
+        height: 2.2rem;
+        font-size: 17px;
+    }
+    
+    .display {
+        align-items: center;
+    }
 }

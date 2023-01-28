@@ -20,19 +20,22 @@ function CustomTipShowHandler()
         customWrapper.setAttribute("clicked", "true");
 
         tip.addEventListener("blur", () => {
-            GenerateValue(tip.value);
+            PercentageValue(tip.value);
         });
     }
 }
 
-tipSelector.forEach((item) => {
-    item.addEventListener("click", () => {
-        GenerateValue(item.getAttribute("data-value"));
-    });
+
+tipSelector.forEach((button) => {
+    button.addEventListener("click", () => {
+        tipSelector.forEach(btn => btn.classList.remove("active-tip"));
+
+        PercentageValue(button.getAttribute("data-value"));
+        button.classList.add("active-tip");
+    })
 });
 
-
-function GenerateValue(percentage) 
+function PercentageValue(percentage) 
 {
     console.log(percentage);
 }
