@@ -1,48 +1,70 @@
-const btnCustom = document.querySelector("#btn-custom");
-const customWrapper = document.querySelector(".custom-tip-wrapper");
-const resultTotalPerPerson = document.querySelector(".result-totalPerPerson");
-const resultTipPerPerson = document.querySelector(".result-tipPerPerson");
-const billTotal = document.querySelector("#txtBill");
+//Elements References
+const billWrapper = document.querySelector(".bill-group");
+const personsWrapper = document.querySelector(".person-group"); 
 
-const tipSelector = document.querySelectorAll("input[name='std-tip']");
+const txtPerson = document.querySelector("#txtPeople");
 
-function CustomTipShowHandler() 
+const customTipWrapper = document.querySelector(".custom-tip-wrapper");
+const btnCustomTipHandler = document.querySelector("#btn-custom");
+
+const btnTips = document.querySelectorAll("input[name='std-tip']");
+
+const btnReset = document.querySelector(".btn-reset");
+
+let percentage;
+let bill;
+let persons;
+
+//
+btnCustomTipHandler.addEventListener("click", GenerateCustomTipInput);
+
+//Functions
+
+
+
+//Change to the clicked tip button
+btnTips.forEach((button) => {
+    button.addEventListener("click", () => {
+        btnTips.forEach(b => b.classList.remove("active-tip"));
+        button.classList.add("active-tip");
+
+        GenerateValue(button);
+    });
+});
+
+
+//Generate a custom tip input
+function GenerateCustomTipInput() 
 {
-    let tip = document.createElement("input");
-    tip.setAttribute("name", "tip");
-    tip.setAttribute("id", "custom-tip");
-    tip.setAttribute("placeholder", "0");
-    tip.classList.add("custom-tip");
+    const customTip = document.createElement("input");
+    customTip.setAttribute("type", "text");
+    customTip.setAttribute("name", "tip");
+    customTip.classList.add("custom-tip");
+    customTip.setAttribute("placeholder", "0");
 
-    if(customWrapper.getAttribute("clicked") == "false")
+    if(customTipWrapper.getAttribute("clicked") == "false")
     {
-        customWrapper.appendChild(tip);
-        customWrapper.setAttribute("clicked", "true");
-
-        tip.addEventListener("blur", () => {
-            PercentageValue(tip.value);
-        });
+        customTipWrapper.appendChild(customTip);
+        customTipWrapper.setAttribute("clicked", "true");
     }
 }
 
-
-tipSelector.forEach((button) => {
-    button.addEventListener("click", () => {
-        tipSelector.forEach(btn => btn.classList.remove("active-tip"));
-
-        PercentageValue(button.getAttribute("data-value"));
-        button.classList.add("active-tip");
-    })
-});
-
-function PercentageValue(percentage) 
+function GenerateValue(elementHandled) 
 {
+    percentage = elementHandled.getAttribute("data-value");
     console.log(percentage);
+
+    PersonGroupChecker()
 }
 
-//Clear all data of bill.
-function ResetBill() 
+function PersonGroupChecker() 
 {
-    resultTotalPerPerson.innerHTML("0.00");
-    resultTipPerPerson.innerHTML("0.00");
+    if((txtPerson.value != "") && (txtPerson.value != "0")) 
+    {
+        persons = txtPerson.value;
+    }
+    else 
+    {
+        personsWrapper.setAttribute("err-status", "true");   
+    }
 }

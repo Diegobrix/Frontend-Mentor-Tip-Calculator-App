@@ -22,8 +22,11 @@
   <main>
     <section aria-label="Bill Description">
       <form action="" method="get">
-        <div class="form-group">
-          <label for="txtBill">bill</label>
+        <div class="form-group bill-group" err-status="false">
+          <div class="form-group-label">
+            <label for="txtBill">bill</label>
+            <p class="err-msg">Can't be zero</p>
+          </div>
           <input type="text" name="bill" id="txtBill" placeholder="0">
         </div>
         <div class="form-group">
@@ -35,12 +38,15 @@
             <input type="button" name="std-tip" value="25%" id="tip-25" data-value="25">
             <input type="button" name="std-tip" value="50%" id="tip-50" data-value="50">
             <div class="custom-tip-wrapper" clicked="false">
-              <input type="button" value="custom" id="btn-custom" onclick="CustomTipShowHandler()">
+              <input type="button" value="custom" id="btn-custom">
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="txtPeople">Number of People</label>
+        <div class="form-group person-group" err-status="false">
+          <div class="form-group-label">
+            <label for="txtPeople">Number of People</label>
+            <p class="err-msg">Can't be zero</p>
+          </div>
           <input type="text" name="people" id="txtPeople" placeholder="0">
         </div>
       </form>
@@ -61,7 +67,7 @@
         <h2 class="value-display">$<span class="result-totalPerPerson">0.00</span></h2>
       </div>
       <div class="display-button-wrapper">
-        <button class="btn-reset">reset</button>
+        <button class="btn-reset" activated="false">reset</button>
       </div>
     </section>
   </main>
